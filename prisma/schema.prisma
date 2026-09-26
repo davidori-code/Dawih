@@ -1,0 +1,58 @@
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../app/generated/prisma/client"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// A single, simple admin account — the one person who logs in to
+// manage content. No public sign-up, no roles, no member accounts.
+model Admin {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
+
+model Sermon {
+  id          String   @id @default(cuid())
+  title       String
+  speaker     String
+  series      String?
+  description String?
+  videoUrl    String?
+  audioUrl    String?
+  coverImage  String?
+  date        DateTime
+  createdAt   DateTime @default(now())
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  date        DateTime
+  location    String
+  coverImage  String?
+  createdAt   DateTime @default(now())
+}
+
+model Announcement {
+  id        String   @id @default(cuid())
+  title     String
+  body      String
+  isPinned  Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+// Contact / prayer request submissions from the public — no login required.
+model PrayerRequest {
+  id        String   @id @default(cuid())
+  name      String?
+  email     String?
+  message   String
+  createdAt DateTime @default(now())
+}

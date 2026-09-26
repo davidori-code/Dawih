@@ -1,0 +1,40 @@
+@import "tailwindcss";
+@import "@uploadthing/react/styles.css";
+
+@theme {
+  /* Color tokens */
+  --color-ink: #0e0e12; /* near-true black — nav, footer, dark sections */
+  --color-charcoal: #1c1c22; /* elevated dark surface / cards on dark */
+  --color-ember: #b9342c; /* the one accent — confident crimson */
+  --color-ember-dim: #9c2b24;
+  --color-linen: #f7f6f3; /* light-mode background */
+  --color-bone: #f7f4ee; /* light text on dark surfaces */
+  --color-slate: #5a5a63; /* muted text on light */
+
+  /* Type */
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-linen);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
