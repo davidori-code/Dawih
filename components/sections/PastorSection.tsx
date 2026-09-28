@@ -6,7 +6,7 @@ import Image from "next/image";
 const PASTOR_IMAGE = "/pastors.png";
 const PASTOR_NAME = "Pastor Trevor Akpomughe";
 const PASTOR_BIO =
-  "Pastor Trevor Akpomughe is the lead pastor of God's Church, dedicated to teaching the Word with clarity and warmth. With a heart for discipleship and a passion for seeing lives transformed, they lead this community in worship, prayer, and genuine care for one another.";
+  "Pastor Trevor Akpomughe is the lead pastor of Dawih Global, dedicated to teaching the Word with clarity and warmth. With a heart for discipleship and a passion for seeing lives transformed, they lead this community in worship, prayer, and genuine care for one another.";
 
 export default function PastorSection() {
   return (

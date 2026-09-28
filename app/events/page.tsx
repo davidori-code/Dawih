@@ -11,7 +11,7 @@ export default async function EventsPage() {
       <main className="mx-auto max-w-6xl px-6 py-16 md:px-12">
         <div className="text-center">
           <h1 className="font-display text-4xl text-ink sm:text-5xl">Events</h1>
-          <p className="mt-2 text-slate">What&rsquo;s happening at God&rsquo;s Church.</p>
+          <p className="mt-2 text-slate">What&rsquo;s happening at Jubilee Christian Family.</p>
         </div>
 
         {events.length === 0 ? (

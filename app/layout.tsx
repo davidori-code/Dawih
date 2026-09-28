@@ -14,7 +14,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "God's Church",
+  title: "Dawih Global",
   description:
     "A place to gather, grow in faith, and belong — join us in person or online.",
 };

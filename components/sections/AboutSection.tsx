@@ -16,7 +16,7 @@ export default function AboutSection() {
         </div>
         <div className="order-1 space-y-4 text-center text-slate md:order-2 md:col-span-3 md:text-left">
           <p>
-            God&rsquo;s Church is a community built around worship, teaching,
+            Jubilee Christian Family is a community built around worship, teaching,
             and life together. Whether you&rsquo;re exploring faith for the
             first time or looking for a new church home, there&rsquo;s a seat
             for you.
