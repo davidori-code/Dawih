@@ -38,6 +38,16 @@ export type Announcement = $Result.DefaultSelection<Prisma.$AnnouncementPayload>
  * 
  */
 export type PrayerRequest = $Result.DefaultSelection<Prisma.$PrayerRequestPayload>
+/**
+ * Model Ministry
+ * 
+ */
+export type Ministry = $Result.DefaultSelection<Prisma.$MinistryPayload>
+/**
+ * Model SiteSettings
+ * 
+ */
+export type SiteSettings = $Result.DefaultSelection<Prisma.$SiteSettingsPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -209,6 +219,26 @@ export class PrismaClient<
     * ```
     */
   get prayerRequest(): Prisma.PrayerRequestDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.ministry`: Exposes CRUD operations for the **Ministry** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Ministries
+    * const ministries = await prisma.ministry.findMany()
+    * ```
+    */
+  get ministry(): Prisma.MinistryDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.siteSettings`: Exposes CRUD operations for the **SiteSettings** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SiteSettings
+    * const siteSettings = await prisma.siteSettings.findMany()
+    * ```
+    */
+  get siteSettings(): Prisma.SiteSettingsDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -660,7 +690,9 @@ export namespace Prisma {
     Sermon: 'Sermon',
     Event: 'Event',
     Announcement: 'Announcement',
-    PrayerRequest: 'PrayerRequest'
+    PrayerRequest: 'PrayerRequest',
+    Ministry: 'Ministry',
+    SiteSettings: 'SiteSettings'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -676,7 +708,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "admin" | "sermon" | "event" | "announcement" | "prayerRequest"
+      modelProps: "admin" | "sermon" | "event" | "announcement" | "prayerRequest" | "ministry" | "siteSettings"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1050,6 +1082,154 @@ export namespace Prisma {
           }
         }
       }
+      Ministry: {
+        payload: Prisma.$MinistryPayload<ExtArgs>
+        fields: Prisma.MinistryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MinistryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MinistryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MinistryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MinistryPayload>
+          }
+          findFirst: {
+            args: Prisma.MinistryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MinistryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MinistryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MinistryPayload>
+          }
+          findMany: {
+            args: Prisma.MinistryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MinistryPayload>[]
+          }
+          create: {
+            args: Prisma.MinistryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MinistryPayload>
+          }
+          createMany: {
+            args: Prisma.MinistryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.MinistryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MinistryPayload>[]
+          }
+          delete: {
+            args: Prisma.MinistryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MinistryPayload>
+          }
+          update: {
+            args: Prisma.MinistryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MinistryPayload>
+          }
+          deleteMany: {
+            args: Prisma.MinistryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MinistryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.MinistryUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MinistryPayload>[]
+          }
+          upsert: {
+            args: Prisma.MinistryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MinistryPayload>
+          }
+          aggregate: {
+            args: Prisma.MinistryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMinistry>
+          }
+          groupBy: {
+            args: Prisma.MinistryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MinistryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MinistryCountArgs<ExtArgs>
+            result: $Utils.Optional<MinistryCountAggregateOutputType> | number
+          }
+        }
+      }
+      SiteSettings: {
+        payload: Prisma.$SiteSettingsPayload<ExtArgs>
+        fields: Prisma.SiteSettingsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SiteSettingsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SiteSettingsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SiteSettingsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SiteSettingsPayload>
+          }
+          findFirst: {
+            args: Prisma.SiteSettingsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SiteSettingsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SiteSettingsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SiteSettingsPayload>
+          }
+          findMany: {
+            args: Prisma.SiteSettingsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SiteSettingsPayload>[]
+          }
+          create: {
+            args: Prisma.SiteSettingsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SiteSettingsPayload>
+          }
+          createMany: {
+            args: Prisma.SiteSettingsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SiteSettingsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SiteSettingsPayload>[]
+          }
+          delete: {
+            args: Prisma.SiteSettingsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SiteSettingsPayload>
+          }
+          update: {
+            args: Prisma.SiteSettingsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SiteSettingsPayload>
+          }
+          deleteMany: {
+            args: Prisma.SiteSettingsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SiteSettingsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SiteSettingsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SiteSettingsPayload>[]
+          }
+          upsert: {
+            args: Prisma.SiteSettingsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SiteSettingsPayload>
+          }
+          aggregate: {
+            args: Prisma.SiteSettingsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSiteSettings>
+          }
+          groupBy: {
+            args: Prisma.SiteSettingsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SiteSettingsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SiteSettingsCountArgs<ExtArgs>
+            result: $Utils.Optional<SiteSettingsCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1178,6 +1358,8 @@ export namespace Prisma {
     event?: EventOmit
     announcement?: AnnouncementOmit
     prayerRequest?: PrayerRequestOmit
+    ministry?: MinistryOmit
+    siteSettings?: SiteSettingsOmit
   }
 
   /* Types for Logging */
@@ -6337,6 +6519,2071 @@ export namespace Prisma {
 
 
   /**
+   * Model Ministry
+   */
+
+  export type AggregateMinistry = {
+    _count: MinistryCountAggregateOutputType | null
+    _min: MinistryMinAggregateOutputType | null
+    _max: MinistryMaxAggregateOutputType | null
+  }
+
+  export type MinistryMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    leader: string | null
+    coverImage: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type MinistryMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    leader: string | null
+    coverImage: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type MinistryCountAggregateOutputType = {
+    id: number
+    name: number
+    description: number
+    leader: number
+    coverImage: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type MinistryMinAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    leader?: true
+    coverImage?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type MinistryMaxAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    leader?: true
+    coverImage?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type MinistryCountAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    leader?: true
+    coverImage?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type MinistryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Ministry to aggregate.
+     */
+    where?: MinistryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Ministries to fetch.
+     */
+    orderBy?: MinistryOrderByWithRelationInput | MinistryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MinistryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Ministries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Ministries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Ministries
+    **/
+    _count?: true | MinistryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MinistryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MinistryMaxAggregateInputType
+  }
+
+  export type GetMinistryAggregateType<T extends MinistryAggregateArgs> = {
+        [P in keyof T & keyof AggregateMinistry]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMinistry[P]>
+      : GetScalarType<T[P], AggregateMinistry[P]>
+  }
+
+
+
+
+  export type MinistryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MinistryWhereInput
+    orderBy?: MinistryOrderByWithAggregationInput | MinistryOrderByWithAggregationInput[]
+    by: MinistryScalarFieldEnum[] | MinistryScalarFieldEnum
+    having?: MinistryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MinistryCountAggregateInputType | true
+    _min?: MinistryMinAggregateInputType
+    _max?: MinistryMaxAggregateInputType
+  }
+
+  export type MinistryGroupByOutputType = {
+    id: string
+    name: string
+    description: string | null
+    leader: string | null
+    coverImage: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: MinistryCountAggregateOutputType | null
+    _min: MinistryMinAggregateOutputType | null
+    _max: MinistryMaxAggregateOutputType | null
+  }
+
+  type GetMinistryGroupByPayload<T extends MinistryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MinistryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MinistryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MinistryGroupByOutputType[P]>
+            : GetScalarType<T[P], MinistryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MinistrySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    leader?: boolean
+    coverImage?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["ministry"]>
+
+  export type MinistrySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    leader?: boolean
+    coverImage?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["ministry"]>
+
+  export type MinistrySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    leader?: boolean
+    coverImage?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["ministry"]>
+
+  export type MinistrySelectScalar = {
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    leader?: boolean
+    coverImage?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type MinistryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "leader" | "coverImage" | "createdAt" | "updatedAt", ExtArgs["result"]["ministry"]>
+
+  export type $MinistryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Ministry"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      description: string | null
+      leader: string | null
+      coverImage: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["ministry"]>
+    composites: {}
+  }
+
+  type MinistryGetPayload<S extends boolean | null | undefined | MinistryDefaultArgs> = $Result.GetResult<Prisma.$MinistryPayload, S>
+
+  type MinistryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MinistryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MinistryCountAggregateInputType | true
+    }
+
+  export interface MinistryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Ministry'], meta: { name: 'Ministry' } }
+    /**
+     * Find zero or one Ministry that matches the filter.
+     * @param {MinistryFindUniqueArgs} args - Arguments to find a Ministry
+     * @example
+     * // Get one Ministry
+     * const ministry = await prisma.ministry.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MinistryFindUniqueArgs>(args: SelectSubset<T, MinistryFindUniqueArgs<ExtArgs>>): Prisma__MinistryClient<$Result.GetResult<Prisma.$MinistryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Ministry that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MinistryFindUniqueOrThrowArgs} args - Arguments to find a Ministry
+     * @example
+     * // Get one Ministry
+     * const ministry = await prisma.ministry.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MinistryFindUniqueOrThrowArgs>(args: SelectSubset<T, MinistryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MinistryClient<$Result.GetResult<Prisma.$MinistryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Ministry that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MinistryFindFirstArgs} args - Arguments to find a Ministry
+     * @example
+     * // Get one Ministry
+     * const ministry = await prisma.ministry.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MinistryFindFirstArgs>(args?: SelectSubset<T, MinistryFindFirstArgs<ExtArgs>>): Prisma__MinistryClient<$Result.GetResult<Prisma.$MinistryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Ministry that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MinistryFindFirstOrThrowArgs} args - Arguments to find a Ministry
+     * @example
+     * // Get one Ministry
+     * const ministry = await prisma.ministry.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MinistryFindFirstOrThrowArgs>(args?: SelectSubset<T, MinistryFindFirstOrThrowArgs<ExtArgs>>): Prisma__MinistryClient<$Result.GetResult<Prisma.$MinistryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Ministries that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MinistryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Ministries
+     * const ministries = await prisma.ministry.findMany()
+     * 
+     * // Get first 10 Ministries
+     * const ministries = await prisma.ministry.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const ministryWithIdOnly = await prisma.ministry.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MinistryFindManyArgs>(args?: SelectSubset<T, MinistryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MinistryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Ministry.
+     * @param {MinistryCreateArgs} args - Arguments to create a Ministry.
+     * @example
+     * // Create one Ministry
+     * const Ministry = await prisma.ministry.create({
+     *   data: {
+     *     // ... data to create a Ministry
+     *   }
+     * })
+     * 
+     */
+    create<T extends MinistryCreateArgs>(args: SelectSubset<T, MinistryCreateArgs<ExtArgs>>): Prisma__MinistryClient<$Result.GetResult<Prisma.$MinistryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Ministries.
+     * @param {MinistryCreateManyArgs} args - Arguments to create many Ministries.
+     * @example
+     * // Create many Ministries
+     * const ministry = await prisma.ministry.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MinistryCreateManyArgs>(args?: SelectSubset<T, MinistryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Ministries and returns the data saved in the database.
+     * @param {MinistryCreateManyAndReturnArgs} args - Arguments to create many Ministries.
+     * @example
+     * // Create many Ministries
+     * const ministry = await prisma.ministry.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Ministries and only return the `id`
+     * const ministryWithIdOnly = await prisma.ministry.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends MinistryCreateManyAndReturnArgs>(args?: SelectSubset<T, MinistryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MinistryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Ministry.
+     * @param {MinistryDeleteArgs} args - Arguments to delete one Ministry.
+     * @example
+     * // Delete one Ministry
+     * const Ministry = await prisma.ministry.delete({
+     *   where: {
+     *     // ... filter to delete one Ministry
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MinistryDeleteArgs>(args: SelectSubset<T, MinistryDeleteArgs<ExtArgs>>): Prisma__MinistryClient<$Result.GetResult<Prisma.$MinistryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Ministry.
+     * @param {MinistryUpdateArgs} args - Arguments to update one Ministry.
+     * @example
+     * // Update one Ministry
+     * const ministry = await prisma.ministry.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MinistryUpdateArgs>(args: SelectSubset<T, MinistryUpdateArgs<ExtArgs>>): Prisma__MinistryClient<$Result.GetResult<Prisma.$MinistryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Ministries.
+     * @param {MinistryDeleteManyArgs} args - Arguments to filter Ministries to delete.
+     * @example
+     * // Delete a few Ministries
+     * const { count } = await prisma.ministry.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MinistryDeleteManyArgs>(args?: SelectSubset<T, MinistryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Ministries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MinistryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Ministries
+     * const ministry = await prisma.ministry.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MinistryUpdateManyArgs>(args: SelectSubset<T, MinistryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Ministries and returns the data updated in the database.
+     * @param {MinistryUpdateManyAndReturnArgs} args - Arguments to update many Ministries.
+     * @example
+     * // Update many Ministries
+     * const ministry = await prisma.ministry.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Ministries and only return the `id`
+     * const ministryWithIdOnly = await prisma.ministry.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends MinistryUpdateManyAndReturnArgs>(args: SelectSubset<T, MinistryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MinistryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Ministry.
+     * @param {MinistryUpsertArgs} args - Arguments to update or create a Ministry.
+     * @example
+     * // Update or create a Ministry
+     * const ministry = await prisma.ministry.upsert({
+     *   create: {
+     *     // ... data to create a Ministry
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Ministry we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MinistryUpsertArgs>(args: SelectSubset<T, MinistryUpsertArgs<ExtArgs>>): Prisma__MinistryClient<$Result.GetResult<Prisma.$MinistryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Ministries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MinistryCountArgs} args - Arguments to filter Ministries to count.
+     * @example
+     * // Count the number of Ministries
+     * const count = await prisma.ministry.count({
+     *   where: {
+     *     // ... the filter for the Ministries we want to count
+     *   }
+     * })
+    **/
+    count<T extends MinistryCountArgs>(
+      args?: Subset<T, MinistryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MinistryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Ministry.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MinistryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MinistryAggregateArgs>(args: Subset<T, MinistryAggregateArgs>): Prisma.PrismaPromise<GetMinistryAggregateType<T>>
+
+    /**
+     * Group by Ministry.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MinistryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MinistryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MinistryGroupByArgs['orderBy'] }
+        : { orderBy?: MinistryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MinistryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMinistryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Ministry model
+   */
+  readonly fields: MinistryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Ministry.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MinistryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Ministry model
+   */
+  interface MinistryFieldRefs {
+    readonly id: FieldRef<"Ministry", 'String'>
+    readonly name: FieldRef<"Ministry", 'String'>
+    readonly description: FieldRef<"Ministry", 'String'>
+    readonly leader: FieldRef<"Ministry", 'String'>
+    readonly coverImage: FieldRef<"Ministry", 'String'>
+    readonly createdAt: FieldRef<"Ministry", 'DateTime'>
+    readonly updatedAt: FieldRef<"Ministry", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Ministry findUnique
+   */
+  export type MinistryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Ministry
+     */
+    select?: MinistrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Ministry
+     */
+    omit?: MinistryOmit<ExtArgs> | null
+    /**
+     * Filter, which Ministry to fetch.
+     */
+    where: MinistryWhereUniqueInput
+  }
+
+  /**
+   * Ministry findUniqueOrThrow
+   */
+  export type MinistryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Ministry
+     */
+    select?: MinistrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Ministry
+     */
+    omit?: MinistryOmit<ExtArgs> | null
+    /**
+     * Filter, which Ministry to fetch.
+     */
+    where: MinistryWhereUniqueInput
+  }
+
+  /**
+   * Ministry findFirst
+   */
+  export type MinistryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Ministry
+     */
+    select?: MinistrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Ministry
+     */
+    omit?: MinistryOmit<ExtArgs> | null
+    /**
+     * Filter, which Ministry to fetch.
+     */
+    where?: MinistryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Ministries to fetch.
+     */
+    orderBy?: MinistryOrderByWithRelationInput | MinistryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Ministries.
+     */
+    cursor?: MinistryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Ministries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Ministries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Ministries.
+     */
+    distinct?: MinistryScalarFieldEnum | MinistryScalarFieldEnum[]
+  }
+
+  /**
+   * Ministry findFirstOrThrow
+   */
+  export type MinistryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Ministry
+     */
+    select?: MinistrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Ministry
+     */
+    omit?: MinistryOmit<ExtArgs> | null
+    /**
+     * Filter, which Ministry to fetch.
+     */
+    where?: MinistryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Ministries to fetch.
+     */
+    orderBy?: MinistryOrderByWithRelationInput | MinistryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Ministries.
+     */
+    cursor?: MinistryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Ministries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Ministries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Ministries.
+     */
+    distinct?: MinistryScalarFieldEnum | MinistryScalarFieldEnum[]
+  }
+
+  /**
+   * Ministry findMany
+   */
+  export type MinistryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Ministry
+     */
+    select?: MinistrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Ministry
+     */
+    omit?: MinistryOmit<ExtArgs> | null
+    /**
+     * Filter, which Ministries to fetch.
+     */
+    where?: MinistryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Ministries to fetch.
+     */
+    orderBy?: MinistryOrderByWithRelationInput | MinistryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Ministries.
+     */
+    cursor?: MinistryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Ministries from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Ministries.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Ministries.
+     */
+    distinct?: MinistryScalarFieldEnum | MinistryScalarFieldEnum[]
+  }
+
+  /**
+   * Ministry create
+   */
+  export type MinistryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Ministry
+     */
+    select?: MinistrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Ministry
+     */
+    omit?: MinistryOmit<ExtArgs> | null
+    /**
+     * The data needed to create a Ministry.
+     */
+    data: XOR<MinistryCreateInput, MinistryUncheckedCreateInput>
+  }
+
+  /**
+   * Ministry createMany
+   */
+  export type MinistryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Ministries.
+     */
+    data: MinistryCreateManyInput | MinistryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Ministry createManyAndReturn
+   */
+  export type MinistryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Ministry
+     */
+    select?: MinistrySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Ministry
+     */
+    omit?: MinistryOmit<ExtArgs> | null
+    /**
+     * The data used to create many Ministries.
+     */
+    data: MinistryCreateManyInput | MinistryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Ministry update
+   */
+  export type MinistryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Ministry
+     */
+    select?: MinistrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Ministry
+     */
+    omit?: MinistryOmit<ExtArgs> | null
+    /**
+     * The data needed to update a Ministry.
+     */
+    data: XOR<MinistryUpdateInput, MinistryUncheckedUpdateInput>
+    /**
+     * Choose, which Ministry to update.
+     */
+    where: MinistryWhereUniqueInput
+  }
+
+  /**
+   * Ministry updateMany
+   */
+  export type MinistryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Ministries.
+     */
+    data: XOR<MinistryUpdateManyMutationInput, MinistryUncheckedUpdateManyInput>
+    /**
+     * Filter which Ministries to update
+     */
+    where?: MinistryWhereInput
+    /**
+     * Limit how many Ministries to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Ministry updateManyAndReturn
+   */
+  export type MinistryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Ministry
+     */
+    select?: MinistrySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Ministry
+     */
+    omit?: MinistryOmit<ExtArgs> | null
+    /**
+     * The data used to update Ministries.
+     */
+    data: XOR<MinistryUpdateManyMutationInput, MinistryUncheckedUpdateManyInput>
+    /**
+     * Filter which Ministries to update
+     */
+    where?: MinistryWhereInput
+    /**
+     * Limit how many Ministries to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Ministry upsert
+   */
+  export type MinistryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Ministry
+     */
+    select?: MinistrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Ministry
+     */
+    omit?: MinistryOmit<ExtArgs> | null
+    /**
+     * The filter to search for the Ministry to update in case it exists.
+     */
+    where: MinistryWhereUniqueInput
+    /**
+     * In case the Ministry found by the `where` argument doesn't exist, create a new Ministry with this data.
+     */
+    create: XOR<MinistryCreateInput, MinistryUncheckedCreateInput>
+    /**
+     * In case the Ministry was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MinistryUpdateInput, MinistryUncheckedUpdateInput>
+  }
+
+  /**
+   * Ministry delete
+   */
+  export type MinistryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Ministry
+     */
+    select?: MinistrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Ministry
+     */
+    omit?: MinistryOmit<ExtArgs> | null
+    /**
+     * Filter which Ministry to delete.
+     */
+    where: MinistryWhereUniqueInput
+  }
+
+  /**
+   * Ministry deleteMany
+   */
+  export type MinistryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Ministries to delete
+     */
+    where?: MinistryWhereInput
+    /**
+     * Limit how many Ministries to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Ministry without action
+   */
+  export type MinistryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Ministry
+     */
+    select?: MinistrySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Ministry
+     */
+    omit?: MinistryOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model SiteSettings
+   */
+
+  export type AggregateSiteSettings = {
+    _count: SiteSettingsCountAggregateOutputType | null
+    _min: SiteSettingsMinAggregateOutputType | null
+    _max: SiteSettingsMaxAggregateOutputType | null
+  }
+
+  export type SiteSettingsMinAggregateOutputType = {
+    id: string | null
+    siteName: string | null
+    tagline: string | null
+    logoUrl: string | null
+    primaryColor: string | null
+    secondaryColor: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SiteSettingsMaxAggregateOutputType = {
+    id: string | null
+    siteName: string | null
+    tagline: string | null
+    logoUrl: string | null
+    primaryColor: string | null
+    secondaryColor: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SiteSettingsCountAggregateOutputType = {
+    id: number
+    siteName: number
+    tagline: number
+    logoUrl: number
+    primaryColor: number
+    secondaryColor: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type SiteSettingsMinAggregateInputType = {
+    id?: true
+    siteName?: true
+    tagline?: true
+    logoUrl?: true
+    primaryColor?: true
+    secondaryColor?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SiteSettingsMaxAggregateInputType = {
+    id?: true
+    siteName?: true
+    tagline?: true
+    logoUrl?: true
+    primaryColor?: true
+    secondaryColor?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SiteSettingsCountAggregateInputType = {
+    id?: true
+    siteName?: true
+    tagline?: true
+    logoUrl?: true
+    primaryColor?: true
+    secondaryColor?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type SiteSettingsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SiteSettings to aggregate.
+     */
+    where?: SiteSettingsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SiteSettings to fetch.
+     */
+    orderBy?: SiteSettingsOrderByWithRelationInput | SiteSettingsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SiteSettingsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SiteSettings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SiteSettings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SiteSettings
+    **/
+    _count?: true | SiteSettingsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SiteSettingsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SiteSettingsMaxAggregateInputType
+  }
+
+  export type GetSiteSettingsAggregateType<T extends SiteSettingsAggregateArgs> = {
+        [P in keyof T & keyof AggregateSiteSettings]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSiteSettings[P]>
+      : GetScalarType<T[P], AggregateSiteSettings[P]>
+  }
+
+
+
+
+  export type SiteSettingsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SiteSettingsWhereInput
+    orderBy?: SiteSettingsOrderByWithAggregationInput | SiteSettingsOrderByWithAggregationInput[]
+    by: SiteSettingsScalarFieldEnum[] | SiteSettingsScalarFieldEnum
+    having?: SiteSettingsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SiteSettingsCountAggregateInputType | true
+    _min?: SiteSettingsMinAggregateInputType
+    _max?: SiteSettingsMaxAggregateInputType
+  }
+
+  export type SiteSettingsGroupByOutputType = {
+    id: string
+    siteName: string | null
+    tagline: string | null
+    logoUrl: string | null
+    primaryColor: string | null
+    secondaryColor: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: SiteSettingsCountAggregateOutputType | null
+    _min: SiteSettingsMinAggregateOutputType | null
+    _max: SiteSettingsMaxAggregateOutputType | null
+  }
+
+  type GetSiteSettingsGroupByPayload<T extends SiteSettingsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SiteSettingsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SiteSettingsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SiteSettingsGroupByOutputType[P]>
+            : GetScalarType<T[P], SiteSettingsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SiteSettingsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    siteName?: boolean
+    tagline?: boolean
+    logoUrl?: boolean
+    primaryColor?: boolean
+    secondaryColor?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["siteSettings"]>
+
+  export type SiteSettingsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    siteName?: boolean
+    tagline?: boolean
+    logoUrl?: boolean
+    primaryColor?: boolean
+    secondaryColor?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["siteSettings"]>
+
+  export type SiteSettingsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    siteName?: boolean
+    tagline?: boolean
+    logoUrl?: boolean
+    primaryColor?: boolean
+    secondaryColor?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["siteSettings"]>
+
+  export type SiteSettingsSelectScalar = {
+    id?: boolean
+    siteName?: boolean
+    tagline?: boolean
+    logoUrl?: boolean
+    primaryColor?: boolean
+    secondaryColor?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type SiteSettingsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "siteName" | "tagline" | "logoUrl" | "primaryColor" | "secondaryColor" | "createdAt" | "updatedAt", ExtArgs["result"]["siteSettings"]>
+
+  export type $SiteSettingsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SiteSettings"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      siteName: string | null
+      tagline: string | null
+      logoUrl: string | null
+      primaryColor: string | null
+      secondaryColor: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["siteSettings"]>
+    composites: {}
+  }
+
+  type SiteSettingsGetPayload<S extends boolean | null | undefined | SiteSettingsDefaultArgs> = $Result.GetResult<Prisma.$SiteSettingsPayload, S>
+
+  type SiteSettingsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SiteSettingsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SiteSettingsCountAggregateInputType | true
+    }
+
+  export interface SiteSettingsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SiteSettings'], meta: { name: 'SiteSettings' } }
+    /**
+     * Find zero or one SiteSettings that matches the filter.
+     * @param {SiteSettingsFindUniqueArgs} args - Arguments to find a SiteSettings
+     * @example
+     * // Get one SiteSettings
+     * const siteSettings = await prisma.siteSettings.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SiteSettingsFindUniqueArgs>(args: SelectSubset<T, SiteSettingsFindUniqueArgs<ExtArgs>>): Prisma__SiteSettingsClient<$Result.GetResult<Prisma.$SiteSettingsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SiteSettings that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SiteSettingsFindUniqueOrThrowArgs} args - Arguments to find a SiteSettings
+     * @example
+     * // Get one SiteSettings
+     * const siteSettings = await prisma.siteSettings.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SiteSettingsFindUniqueOrThrowArgs>(args: SelectSubset<T, SiteSettingsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SiteSettingsClient<$Result.GetResult<Prisma.$SiteSettingsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SiteSettings that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SiteSettingsFindFirstArgs} args - Arguments to find a SiteSettings
+     * @example
+     * // Get one SiteSettings
+     * const siteSettings = await prisma.siteSettings.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SiteSettingsFindFirstArgs>(args?: SelectSubset<T, SiteSettingsFindFirstArgs<ExtArgs>>): Prisma__SiteSettingsClient<$Result.GetResult<Prisma.$SiteSettingsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SiteSettings that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SiteSettingsFindFirstOrThrowArgs} args - Arguments to find a SiteSettings
+     * @example
+     * // Get one SiteSettings
+     * const siteSettings = await prisma.siteSettings.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SiteSettingsFindFirstOrThrowArgs>(args?: SelectSubset<T, SiteSettingsFindFirstOrThrowArgs<ExtArgs>>): Prisma__SiteSettingsClient<$Result.GetResult<Prisma.$SiteSettingsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SiteSettings that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SiteSettingsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SiteSettings
+     * const siteSettings = await prisma.siteSettings.findMany()
+     * 
+     * // Get first 10 SiteSettings
+     * const siteSettings = await prisma.siteSettings.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const siteSettingsWithIdOnly = await prisma.siteSettings.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SiteSettingsFindManyArgs>(args?: SelectSubset<T, SiteSettingsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SiteSettingsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SiteSettings.
+     * @param {SiteSettingsCreateArgs} args - Arguments to create a SiteSettings.
+     * @example
+     * // Create one SiteSettings
+     * const SiteSettings = await prisma.siteSettings.create({
+     *   data: {
+     *     // ... data to create a SiteSettings
+     *   }
+     * })
+     * 
+     */
+    create<T extends SiteSettingsCreateArgs>(args: SelectSubset<T, SiteSettingsCreateArgs<ExtArgs>>): Prisma__SiteSettingsClient<$Result.GetResult<Prisma.$SiteSettingsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SiteSettings.
+     * @param {SiteSettingsCreateManyArgs} args - Arguments to create many SiteSettings.
+     * @example
+     * // Create many SiteSettings
+     * const siteSettings = await prisma.siteSettings.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SiteSettingsCreateManyArgs>(args?: SelectSubset<T, SiteSettingsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many SiteSettings and returns the data saved in the database.
+     * @param {SiteSettingsCreateManyAndReturnArgs} args - Arguments to create many SiteSettings.
+     * @example
+     * // Create many SiteSettings
+     * const siteSettings = await prisma.siteSettings.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many SiteSettings and only return the `id`
+     * const siteSettingsWithIdOnly = await prisma.siteSettings.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SiteSettingsCreateManyAndReturnArgs>(args?: SelectSubset<T, SiteSettingsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SiteSettingsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a SiteSettings.
+     * @param {SiteSettingsDeleteArgs} args - Arguments to delete one SiteSettings.
+     * @example
+     * // Delete one SiteSettings
+     * const SiteSettings = await prisma.siteSettings.delete({
+     *   where: {
+     *     // ... filter to delete one SiteSettings
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SiteSettingsDeleteArgs>(args: SelectSubset<T, SiteSettingsDeleteArgs<ExtArgs>>): Prisma__SiteSettingsClient<$Result.GetResult<Prisma.$SiteSettingsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SiteSettings.
+     * @param {SiteSettingsUpdateArgs} args - Arguments to update one SiteSettings.
+     * @example
+     * // Update one SiteSettings
+     * const siteSettings = await prisma.siteSettings.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SiteSettingsUpdateArgs>(args: SelectSubset<T, SiteSettingsUpdateArgs<ExtArgs>>): Prisma__SiteSettingsClient<$Result.GetResult<Prisma.$SiteSettingsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SiteSettings.
+     * @param {SiteSettingsDeleteManyArgs} args - Arguments to filter SiteSettings to delete.
+     * @example
+     * // Delete a few SiteSettings
+     * const { count } = await prisma.siteSettings.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SiteSettingsDeleteManyArgs>(args?: SelectSubset<T, SiteSettingsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SiteSettings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SiteSettingsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SiteSettings
+     * const siteSettings = await prisma.siteSettings.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SiteSettingsUpdateManyArgs>(args: SelectSubset<T, SiteSettingsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SiteSettings and returns the data updated in the database.
+     * @param {SiteSettingsUpdateManyAndReturnArgs} args - Arguments to update many SiteSettings.
+     * @example
+     * // Update many SiteSettings
+     * const siteSettings = await prisma.siteSettings.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more SiteSettings and only return the `id`
+     * const siteSettingsWithIdOnly = await prisma.siteSettings.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SiteSettingsUpdateManyAndReturnArgs>(args: SelectSubset<T, SiteSettingsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SiteSettingsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one SiteSettings.
+     * @param {SiteSettingsUpsertArgs} args - Arguments to update or create a SiteSettings.
+     * @example
+     * // Update or create a SiteSettings
+     * const siteSettings = await prisma.siteSettings.upsert({
+     *   create: {
+     *     // ... data to create a SiteSettings
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SiteSettings we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SiteSettingsUpsertArgs>(args: SelectSubset<T, SiteSettingsUpsertArgs<ExtArgs>>): Prisma__SiteSettingsClient<$Result.GetResult<Prisma.$SiteSettingsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SiteSettings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SiteSettingsCountArgs} args - Arguments to filter SiteSettings to count.
+     * @example
+     * // Count the number of SiteSettings
+     * const count = await prisma.siteSettings.count({
+     *   where: {
+     *     // ... the filter for the SiteSettings we want to count
+     *   }
+     * })
+    **/
+    count<T extends SiteSettingsCountArgs>(
+      args?: Subset<T, SiteSettingsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SiteSettingsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SiteSettings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SiteSettingsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SiteSettingsAggregateArgs>(args: Subset<T, SiteSettingsAggregateArgs>): Prisma.PrismaPromise<GetSiteSettingsAggregateType<T>>
+
+    /**
+     * Group by SiteSettings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SiteSettingsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SiteSettingsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SiteSettingsGroupByArgs['orderBy'] }
+        : { orderBy?: SiteSettingsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SiteSettingsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSiteSettingsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SiteSettings model
+   */
+  readonly fields: SiteSettingsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SiteSettings.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SiteSettingsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SiteSettings model
+   */
+  interface SiteSettingsFieldRefs {
+    readonly id: FieldRef<"SiteSettings", 'String'>
+    readonly siteName: FieldRef<"SiteSettings", 'String'>
+    readonly tagline: FieldRef<"SiteSettings", 'String'>
+    readonly logoUrl: FieldRef<"SiteSettings", 'String'>
+    readonly primaryColor: FieldRef<"SiteSettings", 'String'>
+    readonly secondaryColor: FieldRef<"SiteSettings", 'String'>
+    readonly createdAt: FieldRef<"SiteSettings", 'DateTime'>
+    readonly updatedAt: FieldRef<"SiteSettings", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SiteSettings findUnique
+   */
+  export type SiteSettingsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SiteSettings
+     */
+    select?: SiteSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SiteSettings
+     */
+    omit?: SiteSettingsOmit<ExtArgs> | null
+    /**
+     * Filter, which SiteSettings to fetch.
+     */
+    where: SiteSettingsWhereUniqueInput
+  }
+
+  /**
+   * SiteSettings findUniqueOrThrow
+   */
+  export type SiteSettingsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SiteSettings
+     */
+    select?: SiteSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SiteSettings
+     */
+    omit?: SiteSettingsOmit<ExtArgs> | null
+    /**
+     * Filter, which SiteSettings to fetch.
+     */
+    where: SiteSettingsWhereUniqueInput
+  }
+
+  /**
+   * SiteSettings findFirst
+   */
+  export type SiteSettingsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SiteSettings
+     */
+    select?: SiteSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SiteSettings
+     */
+    omit?: SiteSettingsOmit<ExtArgs> | null
+    /**
+     * Filter, which SiteSettings to fetch.
+     */
+    where?: SiteSettingsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SiteSettings to fetch.
+     */
+    orderBy?: SiteSettingsOrderByWithRelationInput | SiteSettingsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SiteSettings.
+     */
+    cursor?: SiteSettingsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SiteSettings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SiteSettings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SiteSettings.
+     */
+    distinct?: SiteSettingsScalarFieldEnum | SiteSettingsScalarFieldEnum[]
+  }
+
+  /**
+   * SiteSettings findFirstOrThrow
+   */
+  export type SiteSettingsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SiteSettings
+     */
+    select?: SiteSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SiteSettings
+     */
+    omit?: SiteSettingsOmit<ExtArgs> | null
+    /**
+     * Filter, which SiteSettings to fetch.
+     */
+    where?: SiteSettingsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SiteSettings to fetch.
+     */
+    orderBy?: SiteSettingsOrderByWithRelationInput | SiteSettingsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SiteSettings.
+     */
+    cursor?: SiteSettingsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SiteSettings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SiteSettings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SiteSettings.
+     */
+    distinct?: SiteSettingsScalarFieldEnum | SiteSettingsScalarFieldEnum[]
+  }
+
+  /**
+   * SiteSettings findMany
+   */
+  export type SiteSettingsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SiteSettings
+     */
+    select?: SiteSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SiteSettings
+     */
+    omit?: SiteSettingsOmit<ExtArgs> | null
+    /**
+     * Filter, which SiteSettings to fetch.
+     */
+    where?: SiteSettingsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SiteSettings to fetch.
+     */
+    orderBy?: SiteSettingsOrderByWithRelationInput | SiteSettingsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SiteSettings.
+     */
+    cursor?: SiteSettingsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SiteSettings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SiteSettings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SiteSettings.
+     */
+    distinct?: SiteSettingsScalarFieldEnum | SiteSettingsScalarFieldEnum[]
+  }
+
+  /**
+   * SiteSettings create
+   */
+  export type SiteSettingsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SiteSettings
+     */
+    select?: SiteSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SiteSettings
+     */
+    omit?: SiteSettingsOmit<ExtArgs> | null
+    /**
+     * The data needed to create a SiteSettings.
+     */
+    data: XOR<SiteSettingsCreateInput, SiteSettingsUncheckedCreateInput>
+  }
+
+  /**
+   * SiteSettings createMany
+   */
+  export type SiteSettingsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SiteSettings.
+     */
+    data: SiteSettingsCreateManyInput | SiteSettingsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SiteSettings createManyAndReturn
+   */
+  export type SiteSettingsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SiteSettings
+     */
+    select?: SiteSettingsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SiteSettings
+     */
+    omit?: SiteSettingsOmit<ExtArgs> | null
+    /**
+     * The data used to create many SiteSettings.
+     */
+    data: SiteSettingsCreateManyInput | SiteSettingsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SiteSettings update
+   */
+  export type SiteSettingsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SiteSettings
+     */
+    select?: SiteSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SiteSettings
+     */
+    omit?: SiteSettingsOmit<ExtArgs> | null
+    /**
+     * The data needed to update a SiteSettings.
+     */
+    data: XOR<SiteSettingsUpdateInput, SiteSettingsUncheckedUpdateInput>
+    /**
+     * Choose, which SiteSettings to update.
+     */
+    where: SiteSettingsWhereUniqueInput
+  }
+
+  /**
+   * SiteSettings updateMany
+   */
+  export type SiteSettingsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SiteSettings.
+     */
+    data: XOR<SiteSettingsUpdateManyMutationInput, SiteSettingsUncheckedUpdateManyInput>
+    /**
+     * Filter which SiteSettings to update
+     */
+    where?: SiteSettingsWhereInput
+    /**
+     * Limit how many SiteSettings to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SiteSettings updateManyAndReturn
+   */
+  export type SiteSettingsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SiteSettings
+     */
+    select?: SiteSettingsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SiteSettings
+     */
+    omit?: SiteSettingsOmit<ExtArgs> | null
+    /**
+     * The data used to update SiteSettings.
+     */
+    data: XOR<SiteSettingsUpdateManyMutationInput, SiteSettingsUncheckedUpdateManyInput>
+    /**
+     * Filter which SiteSettings to update
+     */
+    where?: SiteSettingsWhereInput
+    /**
+     * Limit how many SiteSettings to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SiteSettings upsert
+   */
+  export type SiteSettingsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SiteSettings
+     */
+    select?: SiteSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SiteSettings
+     */
+    omit?: SiteSettingsOmit<ExtArgs> | null
+    /**
+     * The filter to search for the SiteSettings to update in case it exists.
+     */
+    where: SiteSettingsWhereUniqueInput
+    /**
+     * In case the SiteSettings found by the `where` argument doesn't exist, create a new SiteSettings with this data.
+     */
+    create: XOR<SiteSettingsCreateInput, SiteSettingsUncheckedCreateInput>
+    /**
+     * In case the SiteSettings was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SiteSettingsUpdateInput, SiteSettingsUncheckedUpdateInput>
+  }
+
+  /**
+   * SiteSettings delete
+   */
+  export type SiteSettingsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SiteSettings
+     */
+    select?: SiteSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SiteSettings
+     */
+    omit?: SiteSettingsOmit<ExtArgs> | null
+    /**
+     * Filter which SiteSettings to delete.
+     */
+    where: SiteSettingsWhereUniqueInput
+  }
+
+  /**
+   * SiteSettings deleteMany
+   */
+  export type SiteSettingsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SiteSettings to delete
+     */
+    where?: SiteSettingsWhereInput
+    /**
+     * Limit how many SiteSettings to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SiteSettings without action
+   */
+  export type SiteSettingsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SiteSettings
+     */
+    select?: SiteSettingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SiteSettings
+     */
+    omit?: SiteSettingsOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -6409,6 +8656,33 @@ export namespace Prisma {
   };
 
   export type PrayerRequestScalarFieldEnum = (typeof PrayerRequestScalarFieldEnum)[keyof typeof PrayerRequestScalarFieldEnum]
+
+
+  export const MinistryScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    description: 'description',
+    leader: 'leader',
+    coverImage: 'coverImage',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type MinistryScalarFieldEnum = (typeof MinistryScalarFieldEnum)[keyof typeof MinistryScalarFieldEnum]
+
+
+  export const SiteSettingsScalarFieldEnum: {
+    id: 'id',
+    siteName: 'siteName',
+    tagline: 'tagline',
+    logoUrl: 'logoUrl',
+    primaryColor: 'primaryColor',
+    secondaryColor: 'secondaryColor',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type SiteSettingsScalarFieldEnum = (typeof SiteSettingsScalarFieldEnum)[keyof typeof SiteSettingsScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -6782,6 +9056,135 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"PrayerRequest"> | Date | string
   }
 
+  export type MinistryWhereInput = {
+    AND?: MinistryWhereInput | MinistryWhereInput[]
+    OR?: MinistryWhereInput[]
+    NOT?: MinistryWhereInput | MinistryWhereInput[]
+    id?: StringFilter<"Ministry"> | string
+    name?: StringFilter<"Ministry"> | string
+    description?: StringNullableFilter<"Ministry"> | string | null
+    leader?: StringNullableFilter<"Ministry"> | string | null
+    coverImage?: StringNullableFilter<"Ministry"> | string | null
+    createdAt?: DateTimeFilter<"Ministry"> | Date | string
+    updatedAt?: DateTimeFilter<"Ministry"> | Date | string
+  }
+
+  export type MinistryOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    leader?: SortOrderInput | SortOrder
+    coverImage?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MinistryWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: MinistryWhereInput | MinistryWhereInput[]
+    OR?: MinistryWhereInput[]
+    NOT?: MinistryWhereInput | MinistryWhereInput[]
+    name?: StringFilter<"Ministry"> | string
+    description?: StringNullableFilter<"Ministry"> | string | null
+    leader?: StringNullableFilter<"Ministry"> | string | null
+    coverImage?: StringNullableFilter<"Ministry"> | string | null
+    createdAt?: DateTimeFilter<"Ministry"> | Date | string
+    updatedAt?: DateTimeFilter<"Ministry"> | Date | string
+  }, "id">
+
+  export type MinistryOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    leader?: SortOrderInput | SortOrder
+    coverImage?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: MinistryCountOrderByAggregateInput
+    _max?: MinistryMaxOrderByAggregateInput
+    _min?: MinistryMinOrderByAggregateInput
+  }
+
+  export type MinistryScalarWhereWithAggregatesInput = {
+    AND?: MinistryScalarWhereWithAggregatesInput | MinistryScalarWhereWithAggregatesInput[]
+    OR?: MinistryScalarWhereWithAggregatesInput[]
+    NOT?: MinistryScalarWhereWithAggregatesInput | MinistryScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Ministry"> | string
+    name?: StringWithAggregatesFilter<"Ministry"> | string
+    description?: StringNullableWithAggregatesFilter<"Ministry"> | string | null
+    leader?: StringNullableWithAggregatesFilter<"Ministry"> | string | null
+    coverImage?: StringNullableWithAggregatesFilter<"Ministry"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Ministry"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Ministry"> | Date | string
+  }
+
+  export type SiteSettingsWhereInput = {
+    AND?: SiteSettingsWhereInput | SiteSettingsWhereInput[]
+    OR?: SiteSettingsWhereInput[]
+    NOT?: SiteSettingsWhereInput | SiteSettingsWhereInput[]
+    id?: StringFilter<"SiteSettings"> | string
+    siteName?: StringNullableFilter<"SiteSettings"> | string | null
+    tagline?: StringNullableFilter<"SiteSettings"> | string | null
+    logoUrl?: StringNullableFilter<"SiteSettings"> | string | null
+    primaryColor?: StringNullableFilter<"SiteSettings"> | string | null
+    secondaryColor?: StringNullableFilter<"SiteSettings"> | string | null
+    createdAt?: DateTimeFilter<"SiteSettings"> | Date | string
+    updatedAt?: DateTimeFilter<"SiteSettings"> | Date | string
+  }
+
+  export type SiteSettingsOrderByWithRelationInput = {
+    id?: SortOrder
+    siteName?: SortOrderInput | SortOrder
+    tagline?: SortOrderInput | SortOrder
+    logoUrl?: SortOrderInput | SortOrder
+    primaryColor?: SortOrderInput | SortOrder
+    secondaryColor?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SiteSettingsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SiteSettingsWhereInput | SiteSettingsWhereInput[]
+    OR?: SiteSettingsWhereInput[]
+    NOT?: SiteSettingsWhereInput | SiteSettingsWhereInput[]
+    siteName?: StringNullableFilter<"SiteSettings"> | string | null
+    tagline?: StringNullableFilter<"SiteSettings"> | string | null
+    logoUrl?: StringNullableFilter<"SiteSettings"> | string | null
+    primaryColor?: StringNullableFilter<"SiteSettings"> | string | null
+    secondaryColor?: StringNullableFilter<"SiteSettings"> | string | null
+    createdAt?: DateTimeFilter<"SiteSettings"> | Date | string
+    updatedAt?: DateTimeFilter<"SiteSettings"> | Date | string
+  }, "id">
+
+  export type SiteSettingsOrderByWithAggregationInput = {
+    id?: SortOrder
+    siteName?: SortOrderInput | SortOrder
+    tagline?: SortOrderInput | SortOrder
+    logoUrl?: SortOrderInput | SortOrder
+    primaryColor?: SortOrderInput | SortOrder
+    secondaryColor?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: SiteSettingsCountOrderByAggregateInput
+    _max?: SiteSettingsMaxOrderByAggregateInput
+    _min?: SiteSettingsMinOrderByAggregateInput
+  }
+
+  export type SiteSettingsScalarWhereWithAggregatesInput = {
+    AND?: SiteSettingsScalarWhereWithAggregatesInput | SiteSettingsScalarWhereWithAggregatesInput[]
+    OR?: SiteSettingsScalarWhereWithAggregatesInput[]
+    NOT?: SiteSettingsScalarWhereWithAggregatesInput | SiteSettingsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"SiteSettings"> | string
+    siteName?: StringNullableWithAggregatesFilter<"SiteSettings"> | string | null
+    tagline?: StringNullableWithAggregatesFilter<"SiteSettings"> | string | null
+    logoUrl?: StringNullableWithAggregatesFilter<"SiteSettings"> | string | null
+    primaryColor?: StringNullableWithAggregatesFilter<"SiteSettings"> | string | null
+    secondaryColor?: StringNullableWithAggregatesFilter<"SiteSettings"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"SiteSettings"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"SiteSettings"> | Date | string
+  }
+
   export type AdminCreateInput = {
     id?: string
     email: string
@@ -7104,6 +9507,153 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type MinistryCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    leader?: string | null
+    coverImage?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MinistryUncheckedCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    leader?: string | null
+    coverImage?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MinistryUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    leader?: NullableStringFieldUpdateOperationsInput | string | null
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MinistryUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    leader?: NullableStringFieldUpdateOperationsInput | string | null
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MinistryCreateManyInput = {
+    id?: string
+    name: string
+    description?: string | null
+    leader?: string | null
+    coverImage?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MinistryUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    leader?: NullableStringFieldUpdateOperationsInput | string | null
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MinistryUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    leader?: NullableStringFieldUpdateOperationsInput | string | null
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SiteSettingsCreateInput = {
+    id?: string
+    siteName?: string | null
+    tagline?: string | null
+    logoUrl?: string | null
+    primaryColor?: string | null
+    secondaryColor?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SiteSettingsUncheckedCreateInput = {
+    id?: string
+    siteName?: string | null
+    tagline?: string | null
+    logoUrl?: string | null
+    primaryColor?: string | null
+    secondaryColor?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SiteSettingsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    siteName?: NullableStringFieldUpdateOperationsInput | string | null
+    tagline?: NullableStringFieldUpdateOperationsInput | string | null
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryColor?: NullableStringFieldUpdateOperationsInput | string | null
+    secondaryColor?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SiteSettingsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    siteName?: NullableStringFieldUpdateOperationsInput | string | null
+    tagline?: NullableStringFieldUpdateOperationsInput | string | null
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryColor?: NullableStringFieldUpdateOperationsInput | string | null
+    secondaryColor?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SiteSettingsCreateManyInput = {
+    id?: string
+    siteName?: string | null
+    tagline?: string | null
+    logoUrl?: string | null
+    primaryColor?: string | null
+    secondaryColor?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SiteSettingsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    siteName?: NullableStringFieldUpdateOperationsInput | string | null
+    tagline?: NullableStringFieldUpdateOperationsInput | string | null
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryColor?: NullableStringFieldUpdateOperationsInput | string | null
+    secondaryColor?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SiteSettingsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    siteName?: NullableStringFieldUpdateOperationsInput | string | null
+    tagline?: NullableStringFieldUpdateOperationsInput | string | null
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryColor?: NullableStringFieldUpdateOperationsInput | string | null
+    secondaryColor?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -7349,6 +9899,69 @@ export namespace Prisma {
     email?: SortOrder
     message?: SortOrder
     createdAt?: SortOrder
+  }
+
+  export type MinistryCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    leader?: SortOrder
+    coverImage?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MinistryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    leader?: SortOrder
+    coverImage?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MinistryMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    leader?: SortOrder
+    coverImage?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SiteSettingsCountOrderByAggregateInput = {
+    id?: SortOrder
+    siteName?: SortOrder
+    tagline?: SortOrder
+    logoUrl?: SortOrder
+    primaryColor?: SortOrder
+    secondaryColor?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SiteSettingsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    siteName?: SortOrder
+    tagline?: SortOrder
+    logoUrl?: SortOrder
+    primaryColor?: SortOrder
+    secondaryColor?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SiteSettingsMinOrderByAggregateInput = {
+    id?: SortOrder
+    siteName?: SortOrder
+    tagline?: SortOrder
+    logoUrl?: SortOrder
+    primaryColor?: SortOrder
+    secondaryColor?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type StringFieldUpdateOperationsInput = {

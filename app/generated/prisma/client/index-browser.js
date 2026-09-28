@@ -166,6 +166,27 @@ exports.Prisma.PrayerRequestScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.MinistryScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  leader: 'leader',
+  coverImage: 'coverImage',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SiteSettingsScalarFieldEnum = {
+  id: 'id',
+  siteName: 'siteName',
+  tagline: 'tagline',
+  logoUrl: 'logoUrl',
+  primaryColor: 'primaryColor',
+  secondaryColor: 'secondaryColor',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -187,7 +208,9 @@ exports.Prisma.ModelName = {
   Sermon: 'Sermon',
   Event: 'Event',
   Announcement: 'Announcement',
-  PrayerRequest: 'PrayerRequest'
+  PrayerRequest: 'PrayerRequest',
+  Ministry: 'Ministry',
+  SiteSettings: 'SiteSettings'
 };
 
 /**
